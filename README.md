@@ -22,9 +22,10 @@ Supported file formats are PDF (.pdf) and Word (.docx).
 - Skills → LLM-based (OpenAI)
 
 ## 3. Architecture
-![Project Architecture](assets/architecture_diagram.png)
+![Project Architecture](assets/architecture-diagram.png)
 
 ## 4. Project Structure
+```bash
 resume_parser/
 │
 ├── parsers/
@@ -50,12 +51,11 @@ resume_parser/
 ├── main.py
 ├── requirements.txt
 └── README.md
+```
 
 ## 5. Set Up and Installation
 
 ### Prerequisites
-
-Install the following first:
 
 - Python 3.10+
 - `pip`
@@ -93,9 +93,11 @@ pip install -r requirements.txt
 `python resume_parser.py <file_path>`
 - Example: `python resume_parser.py sample_resume.pdf`
 
-Output
+Output:
+```json
 {
   "name": "Jane Doe",
   "email": "jane.doe@gmail.com",
   "skills": ["Python", "Machine Learning", "SQL"]
 }
+```
