@@ -24,7 +24,7 @@ class NameExtractor(FieldExtractor):
         self.max_input_chars = max_input_chars
 
         if self.client:
-            logger.info("NameExtractor initialized with OpenAI model: %s", self.model)
+            logger.debug("NameExtractor initialized with OpenAI model: %s", self.model)
         else:
             logger.warning(
                 "OPENAI_API_KEY not found. NameExtractor will use fallback heuristic extraction."

@@ -10,12 +10,9 @@ from extractors.name_extractor import NameExtractor
 from extractors.skills_extractor import SkillsExtractor
 from parsers.pdf_parser import PDFParser
 from parsers.word_parser import WordParser
+from utils.logger import setup_logging
 
-
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
-)
+setup_logging()
 logger = logging.getLogger(__name__)
 
 
@@ -24,7 +21,7 @@ def get_parser(file_path: str):
     logger.debug("Selecting parser for suffix: %s", suffix)
 
     if suffix == ".pdf":
-        logger.info("Using PDFParser for file: %s", file_path)
+        logger.debug("Using PDFParser for file: %s", file_path)
         return PDFParser()
     if suffix == ".docx":
         logger.info("Using WordParser for file: %s", file_path)
@@ -39,7 +36,7 @@ def build_framework(file_path: str) -> ResumeParserFramework:
     Build the resume parsing framework with the appropriate parser
     and configured field extractors.
     """
-    logger.info("Building resume parsing framework for file: %s", file_path)
+    logger.debug("Building resume parsing framework for file: %s", file_path)
     parser = get_parser(file_path)
 
     extractors = {
@@ -50,7 +47,7 @@ def build_framework(file_path: str) -> ResumeParserFramework:
     logger.debug("Configured extractors: %s", sorted(extractors.keys()))
 
     resume_extractor = ResumeExtractor(extractors=extractors)
-    logger.info("Resume parsing framework built successfully.")
+    logger.debug("Resume parsing framework built successfully.")
     return ResumeParserFramework(parser=parser, extractor=resume_extractor)
 
 
@@ -76,7 +73,7 @@ def parse_resume(file_path: str) -> dict:
     framework = build_framework(file_path)
     result = framework.parse_resume(file_path)
 
-    logger.info("Resume parsing completed successfully")
+    logger.info("Resume parsing execution completed successfully for file: %s", file_path)
 
     return {
         "name": result.name,

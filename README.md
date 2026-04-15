@@ -22,34 +22,37 @@ Supported file formats are PDF (.pdf) and Word (.docx).
 - Skills → LLM-based (OpenAI)
 
 ## 3. Architecture
-![Project Architecture](assets/architecture_diagram.png)
+![Project Architecture](assets/architecture-diagram.svg)
 
 ## 4. Project Structure
+```bash
 resume_parser/
 │
 ├── parsers/
-│   ├── base_parser.py
-│   ├── pdf_parser.py
-│   ├── word_parser.py
+│ ├── base_parser.py
+│ ├── pdf_parser.py
+│ ├── word_parser.py
 │
 ├── extractors/
-│   ├── base_extractor.py
-│   ├── name_extractor.py
-│   ├── email_extractor.py
-│   ├── skills_extractor.py
+│ ├── base_extractor.py
+│ ├── name_extractor.py
+│ ├── email_extractor.py
+│ ├── skills_extractor.py
 │
 ├── models/
-│   └── resume_data.py
+│ └── resume_data.py
 │
 ├── core/
-│   ├── resume_extractor.py
-│   └── framework.py
+│ ├── resume_extractor.py
+│ └── framework.py
 │
 ├── tests/
+├── utils/logger.py
 │
-├── main.py
+├── resume_parser.py
 ├── requirements.txt
 └── README.md
+```
 
 ## 5. Set Up and Installation
 
@@ -96,6 +99,22 @@ pip install -r requirements.txt
 Output
 {
   "name": "Jane Doe",
+
   "email": "jane.doe@gmail.com",
+  
   "skills": ["Python", "Machine Learning", "SQL"]
 }
+
+
+## 7. Run the tests
+
+Run the following command:
+
+```bash
+pytest -q tests
+```
+
+**Note:**
+
+- The tests use mocks and stubs so they do not call real OpenAI services.
+- This keeps the suite fast, deterministic, and suitable for local development as well as CI.

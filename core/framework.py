@@ -18,10 +18,10 @@ class ResumeParserFramework:
         """
         Parse a resume file into structured ResumeData.
         """
-        logger.info("Framework parsing started for file: %s", file_path)
+        logger.info("Framework execution started for file: %s", file_path)
         raw_text = self.parser.parse(file_path)
         logger.debug("Raw text extracted. Character count=%d", len(raw_text))
 
         result = self.extractor.extract(raw_text)
-        logger.info("Framework parsing completed for file: %s", file_path)
+        logger.info("Framework execution completed for file: %s", file_path)
         return result
