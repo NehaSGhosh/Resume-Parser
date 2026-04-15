@@ -22,7 +22,9 @@ Supported file formats are PDF (.pdf) and Word (.docx).
 - Skills → LLM-based (OpenAI)
 
 ## 3. Architecture
+<<<<<<< HEAD
 ![Project Architecture](assets/architecture-diagram.svg)
+
 
 ## 4. Project Structure
 ```bash
@@ -57,8 +59,6 @@ resume_parser/
 ## 5. Set Up and Installation
 
 ### Prerequisites
-
-Install the following first:
 
 - Python 3.10+
 - `pip`
@@ -96,7 +96,8 @@ pip install -r requirements.txt
 `python resume_parser.py <file_path>`
 - Example: `python resume_parser.py sample_resume.pdf`
 
-Output
+Output:
+```json
 {
   "name": "Jane Doe",
 
@@ -104,6 +105,7 @@ Output
   
   "skills": ["Python", "Machine Learning", "SQL"]
 }
+<<<<<<< HEAD
 
 
 ## 7. Run the tests
@@ -118,3 +120,6 @@ pytest -q tests
 
 - The tests use mocks and stubs so they do not call real OpenAI services.
 - This keeps the suite fast, deterministic, and suitable for local development as well as CI.
+=======
+```
+>>>>>>> ae6cc8d613592eb072f81c8e75a7b2bef59bace6
