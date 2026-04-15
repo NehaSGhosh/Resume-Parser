@@ -1,4 +1,5 @@
 # Resume Parser
+
 ## 1. Overview
 
 This project implements a pluggable and extensible Resume Parsing Framework in Python. The system extracts structured information from resumes, specifically:
@@ -22,7 +23,6 @@ Supported file formats are PDF (.pdf) and Word (.docx).
 - Skills → LLM-based (OpenAI)
 
 ## 3. Architecture
-<<<<<<< HEAD
 ![Project Architecture](assets/architecture-diagram.svg)
 
 
@@ -58,13 +58,7 @@ resume_parser/
 
 ## 5. Set Up and Installation
 
-### Prerequisites
-
-- Python 3.10+
-- `pip`
-- OpenAI API key
-
-### Step 1: Create a virtual environment
+### Create a virtual environment
 
 #### Windows
 ```bash
@@ -78,20 +72,31 @@ python -m venv .venv
 source .venv/bin/activate
 ```
 
-### Step 2: Install dependencies
+### Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Step 3: Set credentials in `.env`
+### Set credentials in `.env`
 
 - Copy .env.example as .env
 - Replace with your credentials
 
----
+## 6. Run the tests
 
-## 6. Usage
+Run the following command:
+
+```bash
+pytest -q tests
+```
+
+**Note:**
+
+- The tests use mocks and stubs so they do not call real OpenAI services.
+- This keeps the suite fast, deterministic, and suitable for local development as well as CI.
+
+## 7. Usage
 
 `python resume_parser.py <file_path>`
 - Example: `python resume_parser.py sample_resume.pdf`
@@ -105,21 +110,4 @@ Output:
   
   "skills": ["Python", "Machine Learning", "SQL"]
 }
-<<<<<<< HEAD
-
-
-## 7. Run the tests
-
-Run the following command:
-
-```bash
-pytest -q tests
 ```
-
-**Note:**
-
-- The tests use mocks and stubs so they do not call real OpenAI services.
-- This keeps the suite fast, deterministic, and suitable for local development as well as CI.
-=======
-```
->>>>>>> ae6cc8d613592eb072f81c8e75a7b2bef59bace6
